@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+/* ✨ Fairy Light Twinkling Animation */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+}
+
+.twinkle-light {
+  animation: sparkle 2s infinite ease-in-out;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* 🎟 Scalloped Ticket Shape */
+@media (min-width: 0px) {
+  .scalloped-ticket {
+    clip-path: polygon(
+      0% 0%, 
+      100% 0%, 
+      100% 10%, 98% 15%, 
+      100% 20%, 98% 25%, 
+      100% 30%, 98% 35%, 
+      100% 40%, 98% 45%, 
+      100% 50%, 98% 55%, 
+      100% 60%, 98% 65%, 
+      100% 70%, 98% 75%, 
+      100% 80%, 98% 85%, 
+      100% 90%, 100% 100%, 
+      0% 100%, 
+      0% 90%, 2% 85%, 
+      0% 80%, 2% 75%, 
+      0% 70%, 2% 65%, 
+      0% 60%, 2% 55%, 
+      0% 50%, 2% 45%, 
+      0% 40%, 2% 35%, 
+      0% 30%, 2% 25%, 
+      0% 20%, 2% 15%, 
+      0% 10%, 0% 0%
+    );
+  }
+}
+
+.ticket-paper {
+  background-color: #fcd34d; /* yellow-300 */
+
+  /* Embedded fractal noise texture */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+  
+  background-size: 200px 200px;
+  background-repeat: repeat;
+}
+
+.ticket-shape {
+  clip-path: path('M30,0 H570 A30,30 0 0 1 600,30 V120 A30,30 0 0 1 570,150 H30 A30,30 0 0 1 0,120 V30 A30,30 0 0 1 30,0 Z M0,75 a15,15 0 1,0 0.1,0 Z M600,75 a15,15 0 1,0 0.1,0 Z');
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(-5px) rotate(-5deg); }
+  50% { transform: translateX(5px) rotate(5deg); }
+  75% { transform: translateX(-3px) rotate(-3deg); }
+}
+
+.wiggle {
+  animation: wiggle 2s infinite ease-in-out;
+}
